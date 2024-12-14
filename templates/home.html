@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="POST" action=".">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">shorten</button>
+</form>
+    {% if flag %}
+    <div>
+        <h3>Given Url</h3>
+        <p>{{url}}</p>
+    </div>
+    <div>
+        <h3>Your shortened url is:</h3>
+        <a href="/moez/{{shortcode}}">127:0:0:1:8000/moez/{{shortcode}}</a>
+        <p>count of this url {{count}}</p>
+    </div>
+    {% endif %}
+{% endblock content %}
